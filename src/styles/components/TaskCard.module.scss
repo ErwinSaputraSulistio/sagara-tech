@@ -25,6 +25,7 @@
 }
 .taskCardTitle {
   @include container(none, 100%, 70%);
+  @include ellipsis;
   @include flex(row, center, none);
 }
 .taskCardSettings {
