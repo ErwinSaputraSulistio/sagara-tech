@@ -1,0 +1,14 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+body, #root {
+  @include flex(column, center, center);
+}
+body {
+  @include container(transparent, 100vh, 100%);
+  margin: 0;
+}
+
+#root {
+  @include container(transparent, 100vh, 100%);
+}

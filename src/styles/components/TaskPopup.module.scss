@@ -1,0 +1,117 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+@keyframes windowOpen {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes windowClose {
+  from {
+    @include container($second-color, 75%, 75%);
+    transform: scale(1);
+  }
+  to {
+    @include container(transparent, 0, 0);
+    transform: scale(0);
+  }
+}
+@keyframes containerOpen {
+  from {
+    background: transparent;
+  }
+  to {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes containerClose {
+  from {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  to {
+    background: transparent;
+  }
+}
+
+.taskPopupContainer {
+  @include flex(column, center, center);
+  position: absolute;
+  transition: 0.25;
+  z-index: 1;
+}
+.taskPopupContainerOpen {
+  background: rgba(0, 0, 0, 0.5);
+  animation: containerOpen 0.5s;
+}
+.taskPopupContainerClose {
+  background: transparent;
+  animation: containerClose 0.5s;
+}
+.taskPopupWindow {
+  @include ellipsis;
+  border-radius: 1em;
+  box-sizing: border-box;
+  padding: 1em;
+}
+.taskPopupWindowOpen {
+  @include container($second-color, 75%, 75%);
+  animation: windowOpen 0.5s;
+}
+.taskPopupWindowClose {
+  @include container(none, 0, 0);
+  animation: windowClose 0.5s;
+}
+.taskPopupWindowTop {
+  @include container(none, 10%, 100%);
+  @include flex(row, center, space-between);
+  padding-bottom: 0.5em;
+}
+.taskPopupWindowTopButtons {
+  @include flex(row, center, none);
+}
+.taskPopupWindowDeleteTaskButton, .taskPopupWindowCloseButton {
+  @include container($first-color, 2em, 2em);
+  @include flex(row, center, center);
+  border-radius: 50%;
+  margin: 0 0.25em;
+  transition: 0.5s;
+}
+.taskPopupWindowDeleteTaskButton:hover, .taskPopupWindowCloseButton:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.taskPopupWindowTitle {
+  @include ellipsis;
+  color: $first-color;
+  font-family: $first-font;
+  font-size: 1.25em;
+  font-weight: bold;
+  width: 75%;
+}
+.taskPopupWindowDescription {
+  @include ellipsis;
+  color: $fifth-color;
+  font-family: $second-font;
+  font-size: 1em;
+  height: 100%;
+  justify-content: justify;
+  overflow-wrap: break-word;
+  white-space: initial;
+}
+.taskPopupWindowBottom {
+  height: 75%;
+}
+
+@media(min-width: 720px) {
+  .taskPopupContainer {
+    @include container(none, 100%, 50%);
+  }
+}
+@media(max-width: 720px) {
+  .taskPopupContainer {
+    @include container(none, 100%, 100%);
+  }
+}

@@ -1,0 +1,35 @@
+@mixin container(
+  $background-color: transparent, 
+  $height: 100%, 
+  $width: 100%
+) {
+  background-color: $background-color;
+  height: $height;
+  width: $width;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin flex(
+  $flex-direction: column, 
+  $align-items: center, 
+  $justify-content: center
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin title(
+  $font-size
+) {
+  color: $first-color;
+  font-family: $first-font;
+  font-size: $font-size;
+  font-weight: bold;
+}

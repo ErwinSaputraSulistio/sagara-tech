@@ -1,0 +1,73 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.taskListTop {
+  @include ellipsis;
+  @include flex(row, center, space-between);
+  border-radius: 0 0 1em 1em;
+  box-shadow: $base-shadow;
+}
+.taskListTopTitle {
+  @include title(1.25em);
+}
+.taskListTopAdd {
+  @include container($first-color, 100%, 15%);
+  @include flex(row, center, center);
+  transition: 0.1s;
+}
+.taskListTopAdd:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.taskListTopTitle {
+  text-align: center;
+  width: 85%;
+}
+.taskListBottom {
+  @include flex(column, center, space-between);
+  border-radius: 1em 1em 0 0;
+  box-shadow: $base-shadow;
+  box-sizing: border-box;
+  padding: 2em;
+}
+.taskListBottomCards {
+  @include container(none, 75%, 100%);
+}
+.taskListBottomPagination {
+  @include flex(row, center, center);
+}
+.taskListBottomPaginationArrow, 
+.taskListBottomPaginationArrowDisabled, 
+.taskListBottomPaginationNumber {
+  @include container($third-color, 2.5em, 2.5em);
+  @include flex(column, center, center);
+  border: 1px solid $fifth-color;
+  border-radius: 0.5em;
+  color: $first-color;
+  margin: 0 0.25em;
+  transition: 0.1s;
+}
+.taskListBottomPaginationArrow:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.taskListBottomPaginationArrowDisabled {
+  opacity: 0.5;
+}
+
+@media(min-width: 720px) {
+  .taskListTop {
+    @include container($third-color, 10%, 75%);
+  }
+  .taskListBottom {
+    @include container($third-color, 80%, 75%);
+  }
+}
+@media(max-width: 720px) {
+  .taskListTop {
+    @include container($third-color, 10%, 100%);
+  }
+  .taskListBottom {
+    @include container($third-color, 80%, 100%);
+  }
+}

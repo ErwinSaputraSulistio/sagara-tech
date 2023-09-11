@@ -1,0 +1,38 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.taskCard {
+  @include container($second-color, 15%, 100%);
+  @include ellipsis;
+  @include flex(row, center, space-between);
+  border-radius: 0.5em;
+  box-sizing: border-box;
+  color: $fourth-color;
+  font-family: $second-font;
+  margin-bottom: 1.5em;
+}
+.taskCardCheckBox, .taskCardSettings {
+  @include flex(column, center, center);
+}
+.taskCardCheckBox {
+  @include container($first-color, 100%, 10%);
+}
+.taskCardCheckBoxInput {
+  @include container(transparent, 33%, 33%);
+}
+.taskCardCheckBoxInput:hover {
+  cursor: pointer;
+}
+.taskCardTitle {
+  @include container(none, 100%, 70%);
+  @include flex(row, center, none);
+}
+.taskCardSettings {
+  @include container($first-color, 100%, 10%);
+  color: white;
+  transition: 0.1s;
+}
+.taskCardSettings:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
